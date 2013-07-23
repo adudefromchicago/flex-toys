@@ -99,7 +99,7 @@
 
                    <label for="module.id">Module</label>
                    <g:select name="module.id" from="${flex.toys.Module.findAll()}" optionKey="id" optionValue="imageUrl"/>
-                   <g:select name="region" from="${['left','right']}"/>
+                   <g:select name="region" from="${page.layout.regions}"/>
                    <g:select name="position" from="${1..10}"/>
                    <g:submitButton name="Add Module"/>
                </g:form>
