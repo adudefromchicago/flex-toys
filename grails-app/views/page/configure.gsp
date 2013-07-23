@@ -90,6 +90,8 @@
             </ul>
         </div>
 
+        <xmp>${createLink(action:'addModuleLocation', id: page.id, params:['module.id': 2, region:'left', position:2])}</xmp>
+
         %{--<div id="page-body" role="main">--}%
             <h1>Flex Page Configuration for page ... ${page}</h1>
                 %{--<label for="layout.id">Layout</label>--}%
@@ -107,21 +109,10 @@
             <hr/>
 
             <g:set var="modulesByRegion" value="${page.moduleLocations.groupBy{ it.region}}"/>
-                <g:each in="${modulesByRegion}" var="rmp">
-                <div id="${rmp.key}">
-                    <h2>${rmp.key}</h2>
-                    <ul>
-                        <g:each in="${rmp.value}" var="moduleLocation">
-                        <li>
-                            ${moduleLocation.position}:
-                            <g:img dir="moduleStore" file="${moduleLocation.module.imageUrl}"/>
+            
 
-                            <g:link action="deleteModuleLocation" id="${moduleLocation.id}">Remove Module</g:link>
-                        </li>
-                        </g:each>
-                    </ul>
-                </div>
-                </g:each>
+            <g:render template="flexEvenSplit" bean="${modulesByRegion}"/>
+
 
     </body>
 </html>
