@@ -24,6 +24,7 @@ class PageController {
 
         def success = loc.save()
 
+        // TODO update order of modules.
         redirect(action:'configure', id: params.id)
     }
 
@@ -34,5 +35,15 @@ class PageController {
         loc.delete()
 
         redirect(action:'configure', id: page.id)
+    }
+
+    def updateModuleLocation = {
+        ModuleLocation loc = ModuleLocation.get(params.id)
+        loc.region = params.region
+        loc.position = params.position
+
+        loc.save()
+
+        redirect(action:'configure', id: loc.page.id)
     }
 }
