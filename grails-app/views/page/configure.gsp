@@ -82,13 +82,14 @@
         </style>
 	</head>
 	<body>
-        %{--<div id="status" role="complementary">--}%
-            %{--<ul>--}%
-            %{--<g:each in="${flex.toys.Module.findAll()}" var="module">--}%
-                %{--<li><g:img dir="moduleStore" file="${module.imageUrl}" width="160"/></li>--}%
-            %{--</g:each>--}%
-            %{--</ul>--}%
-        %{--</div>--}%
+        <div id="status" role="complementary">
+            <ul>
+            <g:each in="${flex.toys.Module.findAll()}" var="module">
+                <li><g:img dir="moduleStore" file="${module.imageUrl}" width="160"/></li>
+            </g:each>
+            </ul>
+        </div>
+
         %{--<div id="page-body" role="main">--}%
             <h1>Flex Page Configuration for page ... ${page}</h1>
                 %{--<label for="layout.id">Layout</label>--}%
