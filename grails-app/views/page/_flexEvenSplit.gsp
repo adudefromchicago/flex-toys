@@ -78,17 +78,13 @@ $("#testAdd").on("click", function(event){
 });
 
 $(".removeButton").on("click", function(event){
-    //alert($(this).parent().attr("data-position"));
     event.preventDefault();
-    var position = $(this).parent().attr("data-position");
-    var region = $(this).parent().attr("data-region");
     var moduleId = $(this).parent().attr("data-moduleid");
+    $.get("/flex-toys/page/deleteModuleLocation/" + moduleId, function() {
+//        alert("success");
 
-
-     alert("/flex-toys/page/deleteModuleLocation/1?module.id=" + moduleId + "&region=" + region + "&position=" + position);
-
-    $.get("/flex-toys/page/deleteModuleLocation/1?module.id=" + moduleId + "&region=" + region + "&position=" + position, function() {
-        alert("success");
+        // TODO single page dom manipulation.
+        location.reload();
     });
 });
 

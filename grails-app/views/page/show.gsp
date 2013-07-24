@@ -34,16 +34,16 @@
 			
 				<g:if test="${pageInstance?.moduleLocations}">
 				<li class="fieldcontain">
-					<span id="moduleLocations-label" class="property-label"><g:message code="page.moduleLocations.label" default="Module Locations" /></span>
+					<span id="moduleLocations-label" class="property-label"><g:message code="page.moduleLocations.label" default="Modules Used" /></span>
 					
 						<g:each in="${pageInstance.moduleLocations}" var="m">
-						<span class="property-value" aria-labelledby="moduleLocations-label"><g:link controller="moduleLocation" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="moduleLocations-label"><g:link controller="moduleLocation" action="show" id="${m.id}">${m.module.name.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
 				</g:if>
 
-                <hr/>
+                <p/>
 
                 <g:set var="page" value="${pageInstance}"/>
 
