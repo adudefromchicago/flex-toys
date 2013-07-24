@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 
 
-                  $.get("/flex-toys/page/addModuleLocation/1?module.id="+ moduleId +"&region="+ region +"&position=" + position, function() {
+                  $.get("/flex-toys/page/addModuleLocation/${page.id}?module.id="+ moduleId +"&region="+ region +"&position=" + position, function() {
                      //alert("success");
                      return true;
                   });

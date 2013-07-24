@@ -131,7 +131,7 @@
             <g:set var="modulesByRegion" value="${page.moduleLocations.groupBy{ it.region}}"/>
             
 
-            <g:render template="flexEvenSplit" bean="${modulesByRegion}"/>
+            <g:render template="${page.layout.name}" bean="${modulesByRegion}"/>
 
 
     </body>
