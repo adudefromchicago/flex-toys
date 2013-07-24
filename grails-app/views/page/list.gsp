@@ -23,16 +23,20 @@
 			<table>
 				<thead>
 					<tr>
-					
+
+                        <th><g:message code="page.createDate.label" default="Created Date" /></th>
 						<th><g:message code="page.layout.label" default="Layout" /></th>
+                        <th>&nbsp;</th>
 					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${pageInstanceList}" status="i" var="pageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${pageInstance.id}">${fieldValue(bean: pageInstance, field: "layout")}</g:link></td>
+
+                        <td>${fieldValue(bean: pageInstance, field: "createDate")}</td>
+                        <td>${fieldValue(bean: pageInstance, field: "layout")}</td>
+						<td><g:link action="show" id="${pageInstance.id}">View</g:link></td>
 					
 					</tr>
 				</g:each>
