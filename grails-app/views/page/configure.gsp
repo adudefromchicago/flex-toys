@@ -82,10 +82,24 @@
         </style>
 	</head>
 	<body>
-        <div id="status" role="complementary">
+
+    <a href="#edit-page" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+    <g:set var="entityName" value="${message(code: 'page.label', default: 'Page')}" />
+    <div class="nav" role="navigation">
+        <ul>
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+            <li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+            <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+        </ul>
+    </div>
+
+    <div id="status" role="complementary">
             <ul>
             <g:each in="${flex.toys.Module.findAll()}" var="module">
-                <li><g:img dir="moduleStore" file="${module.imageUrl}" width="160" class="draggable" data-moduleid="${module.id}"/></li>
+                <li>
+                    <b>${module.name}</b>
+                    <g:img dir="moduleStore" file="${module.imageUrl}" width="160" class="draggable" data-moduleid="${module.id}"/>
+                </li>
             </g:each>
             </ul>
         </div>
@@ -94,10 +108,9 @@
         <xmp>${createLink(action:'addModuleLocation', id: page.id, params:['module.id': 2, region:'left', position:2])}</xmp>--}%
 
         %{--<div id="page-body" role="main">--}%
+        <g:if test="${params.debug}">
             <h1>Flex Page Configuration for page ... ${page}</h1>
-                %{--<label for="layout.id">Layout</label>--}%
-                %{--<g:select name="layout.id" from="${flex.toys.Layout.findAll()}"/>--}%
-                %{--</div>--}%
+
                <g:form action="addModuleLocation" id="${page.id}">
 
                    <label for="module.id">Module</label>
@@ -108,6 +121,12 @@
                </g:form>
 
             <hr/>
+        </g:if>
+
+            <p>
+            <b><g:message code="page.layout.label" default="Layout" /></b>
+            <span class="property-value" aria-labelledby="layout-label">${page?.layout?.encodeAsHTML()}</span>
+            </p>
 
             <g:set var="modulesByRegion" value="${page.moduleLocations.groupBy{ it.region}}"/>
             
