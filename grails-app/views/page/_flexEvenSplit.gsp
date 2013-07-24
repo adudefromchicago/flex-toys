@@ -95,68 +95,20 @@ $(".removeButton").on("click", function(event){
 
 </script>
 
-<div id="flexEvenSplit">
+<div id="${page.layout.name}">
 
 <div id="contentContainer">
 
     <img src="/flex-toys/static/moduleStore/header.png" width="100%">
 
-    <div id="main" class="droppable region">
-        <g:if test="${modulesByRegion.main}">
-            <g:each in="${modulesByRegion.main.sort{ it.position }}" var="moduleLocation">
-            <div class="flexModule droppable" data-position="${moduleLocation.position}" data-region="main"  data-moduleid="${moduleLocation.id}">
-               <g:img dir="moduleStore" file="${moduleLocation.module.imageUrl}" />
-               <a href="#" class="removeButton"></a>
-            </div>
-            </g:each>
-        </g:if>
-    </div>
-
-    <div id="secondary" class="droppable region">
-        <g:if test="${modulesByRegion.secondary}">
-            <g:each in="${modulesByRegion.secondary.sort{ it.position }}" var="moduleLocation">
-                <div class="flexModule droppable" data-position="${moduleLocation.position}" data-region="secondary" data-moduleid="${moduleLocation.id}">
-
-                <g:img dir="moduleStore" file="${moduleLocation.module.imageUrl}" class="flexModule"/>
-                <a href="#" class="removeButton"></a>
-                            </div>
-
-            </g:each>
-
-        </g:if>
-    </div>
+    <g:each in="${page.layout.regions}" var="region">
+        <g:set var="region" value="${region}"/>
+        <g:render template="region"/>
+    </g:each>
 
     <img src="/flex-toys/static/moduleStore/footer.png" width="100%">
 
 </div>
-
-</div>
-
-<hr/>
-
-%{-- 
-
-${modulesByRegion}
-
-<g:each in="${modulesByRegion}" var="rmp">
-    <div id="${rmp.key}">
-        <h2>${rmp.key}</h2>
-        <ul>
-            <g:each in="${rmp.value}" var="moduleLocation">
-            <li>
-                ${moduleLocation.position}:
-                <g:img dir="moduleStore" file="${moduleLocation.module.imageUrl}"/>
-
-                xXX${createLink(action:'deleteModuleLocation', id: moduleLocation.id)}xx
-
-                <g:link action="" id="${moduleLocation.id}">Remove Module</g:link>
-            </li>
-            </g:each>
-        </ul>
-    </div>
-</g:each>
---}%
-
 
 <style>
 #flexEvenSplit {
