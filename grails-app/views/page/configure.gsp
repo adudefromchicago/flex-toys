@@ -129,8 +129,9 @@
             </p>
 
             <g:set var="modulesByRegion" value="${page.moduleLocations.groupBy{ it.region}}"/>
-            
 
+
+            <g:render template="dragdrop"/>
             <g:render template="${page.layout.name}" bean="${modulesByRegion}"/>
 
 
