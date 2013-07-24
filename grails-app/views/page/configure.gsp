@@ -85,12 +85,13 @@
         <div id="status" role="complementary">
             <ul>
             <g:each in="${flex.toys.Module.findAll()}" var="module">
-                <li><g:img dir="moduleStore" file="${module.imageUrl}" width="160"/></li>
+                <li><g:img dir="moduleStore" file="${module.imageUrl}" width="160" class="draggable" data-moduleid="${module.id}"/></li>
             </g:each>
             </ul>
         </div>
 
-        <xmp>${createLink(action:'addModuleLocation', id: page.id, params:['module.id': 2, region:'left', position:2])}</xmp>
+ %{--
+        <xmp>${createLink(action:'addModuleLocation', id: page.id, params:['module.id': 2, region:'left', position:2])}</xmp>--}%
 
         %{--<div id="page-body" role="main">--}%
             <h1>Flex Page Configuration for page ... ${page}</h1>

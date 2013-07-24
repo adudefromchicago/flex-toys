@@ -1,5 +1,34 @@
 
 
-.flexEvenSplit {
+#flexEvenSplit {
 	border: 1px solid red;
+}
+
+/*Flex: ==flexEvenSplit */
+#flexEvenSplit #contentContainer {
+	position:relative;
+	background-color: white;
+	width:960px;
+}
+#flexEvenSplit #main {
+	clear: left;
+	float: left;
+	position: static;
+	width: 445px;
+}
+#flexEvenSplit #secondary {
+	float: right;
+	margin-top: -1px;
+	min-height: 397px;
+	width: 515px;
+}
+#flexEvenSplit #external {
+	top:0;
+	.flexAdMod {
+		margin:0;
+		.ad {
+			display:block;
+			margin:12px 0;
+		}
+	}
 }
