@@ -1,4 +1,3 @@
-<div id="${page.layout.name}">
 
 <div id="contentContainer">
 

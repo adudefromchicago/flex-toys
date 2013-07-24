@@ -132,7 +132,9 @@
 
 
             <g:render template="dragdrop"/>
-            <g:render template="${page.layout.name}" bean="${modulesByRegion}"/>
+            <div id="${page.layout.name}">
+                <g:render template="${page.layout.name}" bean="${modulesByRegion}"/>
+            </div>
 
 
     </body>
